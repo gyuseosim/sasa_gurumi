@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>aifriend</title>
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<img id="floor1" src="/firstfloor.webp" alt="first floor" />
+	<img id="floor2" src="/secondfloor.webp" alt="second floor" />
+	<img id="floor3" src="/thirdfloor.webp" alt="third floor" />
+	<img id="floor4" src="/fourthfloor.webp" alt="fourth floor" />
+	<img id="floor5" src="/fifthfloor.webp" alt="fifth floor" />
+	<div id="chat-container" class="chat-closed">
+		<div id="chat-header" onclick="toggleChat()">💬 Chat</div>
+		<div id="chat-content">
+			<div id="chat-history"></div>
+			<div class="input-container">
+				<input type="text" id="user-input" placeholder="Type your message..." />
+				<button id="mic-button">🔴</button>
+				<button id="send-button">Send</button>
+			</div>
+		</div>
+	</div>
+	<script type="importmap">
+			{
+				"imports": {
+					"three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+					"three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/",
+					"@pixiv/three-vrm": "./node_modules/@pixiv/three-vrm/lib/three-vrm.module.js",
+					"@google/generative-ai": "https://esm.run/@google/generative-ai"
+				}
+			}
+	</script>
+	<script>
+		function toggleChat() {
+			const chatContainer = document.getElementById("chat-container");
+			chatContainer.classList.toggle("chat-open");
+			chatContainer.classList.toggle("chat-closed");
+		}
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/controls/OrbitControls.js"></script>	
+	<script type="module" src="renderer.js"></script>
+</body>
+
+</html>
